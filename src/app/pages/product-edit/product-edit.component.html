@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <form  (ngSubmit)="onUpdate()" novalidate #f="ngForm" >
+
+                <div class="form-group">
+                    <label for="producto">Producto</label>
+                    <input type="text" class="form-control" id="producto" name="producto"
+                    [(ngModel)]="productos.producto" required>
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Producto</label>
+                    <input type="text" class="form-control" id="descripcion" name="descripcion"
+                    [(ngModel)]="productos.descripcion" required>
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input type="number" class="form-control" id="precio" name="precio"
+                    [(ngModel)]="productos.precio" required>
+                </div>
+                <div class="form-group">
+                    <label for="imagenUrl">Seleccionar Imagen</label>
+                    <select  class="form-control"  id="imagenUrl" name="imagenUrl" [(ngModel)]="productos.imagenUrl" >
+                      <option [ngValue]="item.imagenUrl"  *ngFor="let item of imagenes" >{{item.name}}</option>
+                    </select>
+                </div>
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div> 
